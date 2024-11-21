@@ -30,25 +30,25 @@ export function BitcoinConnect({ onConnect }: BitcoinConnectProps) {
     onConnect();
   };
 
-  return (
-    <div className="flex flex-col items-center gap-2">
-      {!isConnected ? (
-        <Button 
-          onClick={handleConnect}
-          className="w-full p-2 border border-red-500 text-red-500 font-mono flex items-center justify-center gap-2 bg-transparent hover:bg-red-50 cursor-pointer transition-colors"
-        >
-          <Wallet size={16} />
-          Connect Wallet
-        </Button>
-      ) : (
-        <div className="text-red-500 flex items-center gap-2">
-          <Wallet size={16} />
-          Connected
-        </div>
-      )}
-      <div className="text-red-500/70 text-xs">
-        573 sats per command
+return (
+  <div className="flex flex-col items-center gap-2">
+    {!isConnected ? (
+      <Button
+        onClick={handleConnect}
+        className="w-full p-2 border border-red-500 text-red-500 font-mono flex items-center justify-center gap-2 bg-transparent hover:bg-red-50 cursor-pointer transition-colors"
+      >
+        <Wallet size={16} />
+        Connect Wallet
+      </Button>
+    ) : (
+      <div className="text-red-500 flex items-center gap-2">
+        <Wallet size={16} />
+        Connected
       </div>
+    )}
+    <div className="text-red-500/70 text-xs">
+      573 sats per command
     </div>
-  );
-}
+  </div>
+);
+
