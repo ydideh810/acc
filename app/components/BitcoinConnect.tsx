@@ -50,5 +50,5 @@ return (
       573 sats per command
     </div>
   </div>
-);
+)
 
