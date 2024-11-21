@@ -1,5 +1,4 @@
 'use client';
-
 import { useEffect, useState } from 'react';
 import { Wallet } from 'lucide-react';
 import { Button } from '@getalby/bitcoin-connect-react';
@@ -23,7 +22,6 @@ export function BitcoinConnect({ onConnect }: BitcoinConnectProps) {
         }
       }
     };
-
     checkConnection();
   }, [onConnect]);
 
@@ -36,38 +34,19 @@ export function BitcoinConnect({ onConnect }: BitcoinConnectProps) {
     <div className="flex flex-col items-center gap-2">
       {!isConnected ? (
         <Button 
-          onConnect={handleConnect}
-          style={{
-            width: '100%',
-            padding: '0.5rem',
-            border: '1px solid #ff0000',
-            color: '#ff0000',
-            fontFamily: 'monospace',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '0.5rem',
-            backgroundColor: 'transparent',
-            cursor: 'pointer',
-            transition: 'background-color 0.2s',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = 'rgba(255, 0, 0, 0.1)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = 'transparent';
-          }}
+          onClick={handleConnect}
+          className="w-full p-2 border border-red-500 text-red-500 font-mono flex items-center justify-center gap-2 bg-transparent hover:bg-red-50 cursor-pointer transition-colors"
         >
           <Wallet size={16} />
           Connect Wallet
         </Button>
       ) : (
-        <div className="text-[#ff0000] flex items-center gap-2">
+        <div className="text-red-500 flex items-center gap-2">
           <Wallet size={16} />
           Connected
         </div>
       )}
-      <div className="text-[#ff0000]/70 text-xs">
+      <div className="text-red-500/70 text-xs">
         573 sats per command
       </div>
     </div>
