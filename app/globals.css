@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --terminal-red: #ff0000;
+  --terminal-dark: #000000;
+  --scan-line: rgba(255, 0, 0, 0.1);
+}
+
+body {
+  background-color: var(--terminal-dark);
+  color: var(--terminal-red);
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Press_Start_2P', monospace;
+  line-height: 1.5;
+}
+
+.terminal-frame {
+  position: relative;
+  border: 2px solid var(--terminal-red);
+  background-color: var(--terminal-dark);
+  overflow: hidden;
+}
+
+.terminal-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    var(--scan-line) 0px,
+    var(--scan-line) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+.terminal-text {
+  color: var(--terminal-red);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+input::placeholder {
+  color: rgba(255, 0, 0, 0.5);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--terminal-red);
+}
+
+button {
+  transition: opacity 0.2s ease;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.radar-screen {
+  border: 1px solid var(--terminal-red);
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  height: 200px;
+}
+
+/* Custom Scrollbar */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--terminal-red);
+  border-radius: 2px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 0, 0, 0.8);
+}
